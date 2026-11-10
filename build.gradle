@@ -1,0 +1,99 @@
+plugins {
+    id 'java'
+    id 'fabric-loom' version '1.9-SNAPSHOT'
+    id 'com.gradleup.shadow' version '8.3.5'
+}
+
+version = project.mod_version
+group = project.maven_group
+
+base {
+    archivesName = project.archives_base_name
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        name = 'Fabric'
+        url = 'https://maven.fabricmc.net/'
+    }
+    maven {
+        name = 'SpongePowered'
+        url = 'https://repo.spongepowered.org/repository/maven-public/'
+    }
+    maven {
+        name = 'Masa Mods (Modrinth)'
+        url = 'https://api.modrinth.com/maven'
+        content {
+            includeGroup 'maven.modrinth'
+        }
+    }
+}
+
+configurations {
+    shade
+    implementation.extendsFrom(shade)
+}
+
+dependencies {
+    // Minecraft & Fabric Loader
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    mappings loom.officialMojangMappings()
+    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+
+    // MaLiLib & Litematica dependencies
+    modImplementation "maven.modrinth:malilib:${project.malilib_version}"
+    modImplementation "maven.modrinth:litematica:${project.litematica_version}"
+
+    // Gson, Guava, FastUtil, Mixin, GLFW (provided by Minecraft client runtime)
+    compileOnly 'com.google.code.gson:gson:2.11.0'
+    compileOnly 'com.google.guava:guava:33.3.1-jre'
+    compileOnly 'it.unimi.dsi:fastutil:8.5.15'
+    compileOnly 'org.spongepowered:mixin:0.8.7'
+    compileOnly 'org.lwjgl:lwjgl-glfw:3.3.3'
+
+    // Pawly Host API
+    compileOnly files('libs/pawly-api.jar')
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+    withSourcesJar()
+}
+
+tasks.withType(JavaCompile).configureEach {
+    it.options.encoding = 'UTF-8'
+    it.options.release = 21
+    it.options.compilerArgs += ['-parameters']
+}
+
+processResources {
+    inputs.property 'version', project.version
+    filteringCharset = 'UTF-8'
+}
+
+jar {
+    manifest {
+        attributes(
+            'Manifest-Version': '1.0',
+            'Pawly-Adapter-Main': 'com.pawly.adapters.easy.EasyModule',
+            'Pawly-Module-Id': 'easy',
+            'Pawly-Module-Name': 'Easy',
+            'Pawly-Module-Version': project.version
+        )
+    }
+}
+
+shadowJar {
+    configurations = [project.configurations.shade]
+    archiveClassifier.set('all')
+    manifest.inheritFrom(jar.manifest)
+}
+
+remapJar {
+    dependsOn shadowJar
+    inputFile.set(shadowJar.archiveFile)
+}

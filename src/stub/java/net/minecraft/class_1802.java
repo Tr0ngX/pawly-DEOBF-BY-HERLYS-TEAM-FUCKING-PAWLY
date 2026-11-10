@@ -1,0 +1,31 @@
+package net.minecraft;
+public final class class_1802 {
+    public static final class_1792 field_8102 = new class_1792();
+    public static final class_1792 field_8103 = new class_1792();
+    public static final class_1792 field_8150 = new class_1792();
+    public static final class_1792 field_8187 = new class_1792();
+    public static final class_1792 field_8255 = new class_1792();
+    public static final class_1792 field_8324 = new class_1792();
+    public static final class_1792 field_8360 = new class_1792();
+    public static final class_1792 field_8378 = new class_1792();
+    public static final class_1792 field_8399 = new class_1792();
+    public static final class_1792 field_8436 = new class_1792();
+    public static final class_1792 field_8449 = new class_1792();
+    public static final class_1792 field_8469 = new class_1792();
+    public static final class_1792 field_8547 = new class_1792();
+    public static final class_1792 field_8574 = new class_1792();
+    public static final class_1792 field_8634 = new class_1792();
+    public static final class_1792 field_8639 = new class_1792();
+    public static final class_1792 field_8674 = new class_1792();
+    public static final class_1792 field_8705 = new class_1792();
+    public static final class_1792 field_8814 = new class_1792();
+    public static final class_1792 field_8868 = new class_1792();
+    public static final class_1792 field_8884 = new class_1792();
+    public static final class_1792 field_20414 = new class_1792();
+    public static final class_1792 field_20417 = new class_1792();
+    public static final class_1792 field_27070 = new class_1792();
+    public static final class_1792 field_27876 = new class_1792();
+    public static final class_1792 field_39057 = new class_1792();
+    public static final class_1792 field_42716 = new class_1792();
+    public static final class_1792 field_49098 = new class_1792();
+}

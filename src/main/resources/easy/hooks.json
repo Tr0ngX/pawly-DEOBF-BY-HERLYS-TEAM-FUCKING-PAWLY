@@ -1,0 +1,62 @@
+[
+  {
+    "owner": "net/minecraft/client/gui/screens/inventory/CrafterScreen",
+    "method": "init",
+    "kind": "TAIL",
+    "event": "com.pawly.adapters.easy.core.mixin.CrafterScreenMixin#lorePickBlock$onCrafterInit",
+    "callback": "void",
+    "target": "",
+    "ordinal": -1,
+    "argument": 0,
+    "optional": false,
+    "descriptor": "()V"
+  },
+  {
+    "owner": "fi/dy/masa/litematica/util/InventoryUtils",
+    "method": "schematicWorldPickBlock",
+    "kind": "ARG0",
+    "event": "com.pawly.adapters.easy.core.mixin.InventoryUtilsMixin#lorePickBlock$useServerProvidedStack",
+    "callback": "none",
+    "target": "",
+    "ordinal": 0,
+    "argument": 0,
+    "optional": false,
+    "descriptor": "(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/Level;Lnet/minecraft/client/Minecraft;)V"
+  },
+  {
+    "owner": "fi/dy/masa/litematica/util/InventoryUtils",
+    "method": "schematicWorldPickBlock",
+    "kind": "RETURN",
+    "event": "com.pawly.adapters.easy.core.mixin.InventoryUtilsMixin#lorePickBlock$watchForCorrection",
+    "callback": "void",
+    "target": "",
+    "ordinal": -1,
+    "argument": 0,
+    "optional": false,
+    "descriptor": "(Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/Level;Lnet/minecraft/client/Minecraft;)V"
+  },
+  {
+    "owner": "net/minecraft/client/Minecraft",
+    "method": "startUseItem",
+    "kind": "GUARD",
+    "event": "com.pawly.adapters.easy.core.mixin.SchematicPickBlockMixin#lorePickBlock$onStartUseItem",
+    "callback": "void",
+    "target": "",
+    "ordinal": -1,
+    "argument": 0,
+    "optional": false,
+    "descriptor": "()V"
+  },
+  {
+    "owner": "net/minecraft/client/Minecraft",
+    "method": "startUseItem",
+    "kind": "RETURN",
+    "event": "com.pawly.adapters.easy.core.mixin.SchematicPickBlockMixin#lorePickBlock$afterStartUseItem",
+    "callback": "void",
+    "target": "",
+    "ordinal": -1,
+    "argument": 0,
+    "optional": false,
+    "descriptor": "()V"
+  }
+]
