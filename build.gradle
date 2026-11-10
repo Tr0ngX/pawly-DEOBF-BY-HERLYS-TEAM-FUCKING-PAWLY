@@ -81,7 +81,7 @@ jar {
             'Manifest-Version': '1.0',
             'Pawly-Adapter-Main': 'com.pawly.adapters.easy.EasyModule',
             'Pawly-Module-Id': 'easy',
-            'Pawly-Module-Name': 'Easy',
+            'Pawly-Module-Name': 'ZENOly FUCK BITCH',
             'Pawly-Module-Version': project.version
         )
     }

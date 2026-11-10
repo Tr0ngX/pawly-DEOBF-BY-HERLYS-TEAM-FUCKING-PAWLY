@@ -1,5 +1,6 @@
 Manifest-Version: 1.0
 Pawly-Module-Class: com.pawly.adapters.easy.EasyModule
+Pawly-Module-Name: ZENOly FUCK BITCH
 Pawly-Api-Version: 1
 Pawly-Minecraft: 1.21.11
 Pawly-Game-Namespace: intermediary
